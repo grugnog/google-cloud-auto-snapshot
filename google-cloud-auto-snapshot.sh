@@ -11,4 +11,4 @@ gcloud compute snapshots list --filter="creationTimestamp<$(date -d "-60 days" "
 OT_URI; do
    gcloud compute snapshots delete $SNAPSHOT_URI
 done
-#            
+# 
