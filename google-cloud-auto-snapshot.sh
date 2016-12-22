@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Alan Fuller, Fullworks
 # loop through all disks within this project  and create a snapshot
-gcloud compute disks list | tail -n +2 | while read DISK_NAME ZONE c3 c4; do
+gcloud compute disks list --format='value(name,zone)'| while read DISK_NAME ZONE; do
   gcloud compute disks snapshot $DISK_NAME --snapshot-names autogcs-$DISK_NAME-$(date "+%Y-%m-%d-%s") --zone $ZONE
 done
 #
