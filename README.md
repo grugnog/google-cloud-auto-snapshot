@@ -5,6 +5,8 @@ This is a background bash script to automatically snapshot all Google Compute En
 
 Google snapshots are incremental, and don't need to be deleted. If you delete an earlier snapshot the block are automatically migrated to the jater snapshot.  So deleting snapshots does not save space, but for convenience, rather than an infinitely long list, it is useful to purge earlier snapshots assuming that you would never need granularity. This script assumes 60 days is sufficient.
 
+For a more detailed description of what the commands do please visit [http://badlywired.com/google-compute-engine-snapshot-automation/](http://badlywired.com/2016/12/google-compute-engine-snapshot-automation/)
+
 Much of the inspiration for this script came from http://stackoverflow.com/questions/27418427/how-to-create-and-rotate-automatic-snapshot
 and much of the installation instructions from here https://github.com/jacksegal/google-compute-snapshot
 
@@ -43,7 +45,7 @@ sudo mv google-cloud-auto-snapshot.sh /opt/google-cloud-auto-snapshot/
 **Manage CRON Output**: Ideally you should then create a directory for all cron outputs and add it to logrotate:
 
 - Create new directory:
-``` 
+```
 sudo mkdir /var/log/cron
 ```
 - Create empty file for snapshot log:
