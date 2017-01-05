@@ -8,7 +8,7 @@ if [ -z "${SLEEP}" ]; then
   SLEEP=21600
 fi
 while true; do
-  ./google-cloud-auto-snapshot.sh
+  /opt/google-cloud-auto-snapshot.sh
   sleep $SLEEP
   if [ -n "${NOTIFY_COMMAND}" ]; then
     bash -c "$NOTIFY_COMMAND"
