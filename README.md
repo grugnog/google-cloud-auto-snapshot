@@ -3,7 +3,7 @@
 
 This is a background bash script to automatically snapshot all Google Compute Engine disks in a Google cloud project.
 
-Google snapshots are incremental, and don't need to be deleted. If you delete an earlier snapshot the block are automatically migrated to the jater snapshot.  So deleting snapshots does not save space, but for convenience, rather than an infinitely long list, it is useful to purge earlier snapshots assuming that you would never need granularity. This script assumes 60 days is sufficient.
+Google snapshots are incremental, and don't need to be deleted. If you delete an earlier snapshot the block are automatically migrated to the later snapshot.  So deleting snapshots does not save space, but for convenience, rather than an infinitely long list, it is useful to purge earlier snapshots assuming that you would never need granularity. This script will default to 60 days. You can change this behavior with an environment variable of DAYS_RETENTION.
 
 **For a more detailed description of what the commands do please visit [http://badlywired.com/google-compute-engine-snapshot-automation/](http://badlywired.com/2016/12/google-compute-engine-snapshot-automation/)**
 
@@ -16,7 +16,7 @@ google-cloud-auto-snapshot.sh will:
 
 - Determine all Compute Engine Disks in the current project, regardless of
 - Take a snapshot of all disks - snapshots prefixed autogcs-{DISK_NAME-YYYY-MM-DD-sssssssss}
-- The script will then delete all associated snapshots taken by the script that are older than 60 days
+- The script will then delete all associated snapshots taken by the script that are older than 60 days or the value of the environment variable DAYS_RETENTION.
 
 
 ## Prerequisites
@@ -81,7 +81,7 @@ sudo /opt/google-cloud-auto-snapshot/google-cloud-auto-snapshot.sh
 
 ## Snapshot Retention
 
-Snapshots are kept for 60 days
+Snapshots are kept for 60 days by default.  You can change this with an environment variable DAYS_RETENTION.
 
 ## Limitations, possible future enhancements
 * Works for all disks in a project, can't be selective
