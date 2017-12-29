@@ -13,7 +13,7 @@ run() {
 	fi
 }
 
-if [ -z "${ONESHOT}" ]; then
+if [ -n "${ONESHOT}" ]; then
 	run
 else
 	if [ -z "${SLEEP}" ]; then
