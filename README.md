@@ -28,7 +28,8 @@ google-cloud-auto-snapshot.sh will:
 
 Install the script on any single server ( it will back up ALL disks in a project regardless of the server), the script doesn't even have to run on Google Compute Engine instance, any linux machine will work.
 
-**Install Script**: Download the latest version of the snapshot script and make it executable, e.g. ```
+**Install Script**: Download the script and make it executable, e.g. 
+```
 cd ~
 wget https://gitlab.com/alan8/google-cloud-auto-snapshot/raw/master/google-cloud-auto-snapshot.sh
 chmod +x google-cloud-auto-snapshot.sh
